@@ -1,0 +1,13 @@
+.git
+.github
+.env
+node_modules
+dist
+storage/documents
+artifacts
+*.log
+vite-dev*.log
+test
+tickets
+docs
+src/example_documents

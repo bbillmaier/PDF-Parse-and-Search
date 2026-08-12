@@ -1,0 +1,81 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: pdf-to-html-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${PDF_DB_NAME:-pdf_to_html}
+      POSTGRES_USER: ${PDF_DB_USER:-pdf_to_html}
+      POSTGRES_PASSWORD: ${PDF_DB_PASSWORD:-pdf_to_html_dev}
+    ports:
+      - "${PDF_DB_PORT:-54329}:5432"
+    volumes:
+      - pdf-to-html-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 2s
+      timeout: 5s
+      retries: 15
+      start_period: 5s
+
+  migrate:
+    image: pdf-to-html-api:demo
+    build:
+      context: .
+      target: api
+    environment:
+      DATABASE_URL: postgresql://${PDF_DB_USER:-pdf_to_html}:${PDF_DB_PASSWORD:-pdf_to_html_dev}@postgres:5432/${PDF_DB_NAME:-pdf_to_html}
+    command: ["npm", "run", "db:migrate"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: "no"
+
+  api:
+    image: pdf-to-html-api:demo
+    build:
+      context: .
+      target: api
+    restart: unless-stopped
+    environment:
+      PORT: 3001
+      DATABASE_URL: postgresql://${PDF_DB_USER:-pdf_to_html}:${PDF_DB_PASSWORD:-pdf_to_html_dev}@postgres:5432/${PDF_DB_NAME:-pdf_to_html}
+      DOCUMENT_STORAGE_ROOT: /app/storage/documents
+      CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS:-http://localhost:5173}
+    ports:
+      - "${PDF_API_PORT:-3001}:3001"
+    volumes:
+      - ./storage/documents:/app/storage/documents
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3001/api/documents').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 3s
+      timeout: 5s
+      retries: 20
+      start_period: 5s
+
+  web:
+    image: pdf-to-html-web:demo
+    build:
+      context: .
+      target: web
+      args:
+        VITE_DOCUMENT_API_BASE: ${VITE_DOCUMENT_API_BASE:-http://localhost:3001}
+    restart: unless-stopped
+    ports:
+      - "${PDF_WEB_PORT:-5173}:4173"
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:4173').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 3s
+      timeout: 5s
+      retries: 20
+      start_period: 5s
+
+volumes:
+  pdf-to-html-postgres-data:
+    name: pdf-to-html-postgres-data

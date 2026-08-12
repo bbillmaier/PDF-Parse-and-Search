@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env
+*.log
+artifacts/*.tar
+
+# Local document data may contain workplace PDFs and extracted content.
+storage/documents/*
+!storage/documents/.gitkeep

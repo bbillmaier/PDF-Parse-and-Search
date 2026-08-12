@@ -1,0 +1,364 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Epic C sample corpus > golden semantic snapshots (representative pages) > matches a stable snapshot of afqtp24-3-b192.pdf page 3 (headings + lists) 1`] = `
+[
+  {
+    "id": "h-1",
+    "level": 1,
+    "pageNumber": 3,
+    "text": [
+      {
+        "text": "Section 1—OVERVIEW ",
+      },
+    ],
+    "type": "heading",
+  },
+  {
+    "id": "p-39",
+    "pageNumber": 3,
+    "text": [
+      {
+        "text": "1.1. Overview. ",
+      },
+    ],
+    "type": "paragraph",
+  },
+  {
+    "id": "p-40",
+    "pageNumber": 3,
+    "text": [
+      {
+        "text": "1.1.1. Send comments and suggested improvements on Department of the Air Force (DAF)  Form 847, Recommendation for Change of Publication through Air Force Installation and  Mission Support Center (AFIMSC) functional managers via e-mail at  AFIMSC.A34OG.GroundTrans@us.af.mil. ",
+      },
+    ],
+    "type": "paragraph",
+  },
+  {
+    "id": "p-41",
+    "pageNumber": 3,
+    "text": [
+      {
+        "text": "1.1.2. How to use this plan: ",
+      },
+    ],
+    "type": "paragraph",
+  },
+  {
+    "id": "p-42",
+    "pageNumber": 3,
+    "text": [
+      {
+        "text": "1.1.2.1. Instructor: ",
+      },
+    ],
+    "type": "paragraph",
+  },
+  {
+    "id": "p-43",
+    "pageNumber": 3,
+    "text": [
+      {
+        "text": "1.1.2.1.1.   Provide overview of training, Section 2 and Section 3. ",
+      },
+    ],
+    "type": "paragraph",
+  },
+  {
+    "id": "p-44",
+    "pageNumber": 3,
+    "text": [
+      {
+        "text": "1.1.2.1.2.   Instructor’s lesson plan for trainee preparation, give classroom lecture,  Section 4. ",
+      },
+    ],
+    "type": "paragraph",
+  },
+  {
+    "id": "p-45",
+    "pageNumber": 3,
+    "text": [
+      {
+        "text": "1.1.2.1.3.   Instructor’s lesson plan for knowledge training, Section 5. ",
+      },
+    ],
+    "type": "paragraph",
+  },
+  {
+    "id": "p-46",
+    "pageNumber": 3,
+    "text": [
+      {
+        "text": "1.1.2.1.4.   Instructor’s lesson plan for demonstration, Section 6. ",
+      },
+    ],
+    "type": "paragraph",
+  },
+  {
+    "id": "p-47",
+    "pageNumber": 3,
+    "text": [
+      {
+        "text": "1.1.2.1.5.   Instructor’s lesson plan for performance and evaluation, Section 7. ",
+      },
+    ],
+    "type": "paragraph",
+  },
+  {
+    "id": "p-48",
+    "pageNumber": 3,
+    "text": [
+      {
+        "text": "1.1.2.2. Trainee: ",
+      },
+    ],
+    "type": "paragraph",
+  },
+  {
+    "id": "p-49",
+    "pageNumber": 3,
+    "text": [
+      {
+        "text": "1.1.2.2.1.   Reads entire lesson plan prior to classroom lecture. ",
+      },
+    ],
+    "type": "paragraph",
+  },
+  {
+    "id": "p-50",
+    "pageNumber": 3,
+    "text": [
+      {
+        "text": "1.1.2.2.2.   Follows along with lecture using this lesson plan and its attachments. ",
+      },
+    ],
+    "type": "paragraph",
+  },
+  {
+    "id": "p-51",
+    "pageNumber": 3,
+    "text": [
+      {
+        "text": "1.1.2.2.3.   Uses Attachments 2 and 4 as guides for vehicle inspection. ",
+      },
+    ],
+    "type": "paragraph",
+  },
+  {
+    "id": "p-52",
+    "pageNumber": 3,
+    "text": [
+      {
+        "text": "1.1.2.2.4.   Takes performance test. ",
+      },
+    ],
+    "type": "paragraph",
+  },
+  {
+    "id": "h-2",
+    "level": 1,
+    "pageNumber": 3,
+    "text": [
+      {
+        "text": "Section 2—RESPONSIBILITIES ",
+      },
+    ],
+    "type": "heading",
+  },
+  {
+    "id": "p-53",
+    "pageNumber": 3,
+    "text": [
+      {
+        "text": "2.1. Responsibilities. ",
+      },
+    ],
+    "type": "paragraph",
+  },
+  {
+    "id": "p-54",
+    "pageNumber": 3,
+    "text": [
+      {
+        "text": "2.1.1. The trainee shall: ",
+      },
+    ],
+    "type": "paragraph",
+  },
+  {
+    "id": "p-55",
+    "pageNumber": 3,
+    "text": [
+      {
+        "text": "2.1.1.1. Ensure the trainer explains the Air Force Qualification Training Package  (AFQTP) process and the responsibilities. ",
+      },
+    ],
+    "type": "paragraph",
+  },
+  {
+    "id": "p-56",
+    "pageNumber": 3,
+    "text": [
+      {
+        "text": "2.1.1.2. Review the AFQTP/Module/Unit with the trainer. ",
+      },
+    ],
+    "type": "paragraph",
+  },
+]
+`;
+
+exports[`Epic C sample corpus > golden semantic snapshots (representative pages) > matches a stable snapshot of qtp1s0x1-1.pdf page 6 (nested headings) 1`] = `
+[
+  {
+    "id": "h-1",
+    "level": 1,
+    "pageNumber": 6,
+    "text": [
+      {
+        "text": "Chapter 1 ",
+      },
+    ],
+    "type": "heading",
+  },
+  {
+    "id": "p-158",
+    "pageNumber": 6,
+    "text": [
+      {
+        "text": "INTRODUCTION ",
+      },
+    ],
+    "type": "paragraph",
+  },
+  {
+    "id": "h-2",
+    "level": 2,
+    "pageNumber": 6,
+    "text": [
+      {
+        "text": "1.1. Overview. This publication implements training requirements found in DAFMAN 91-203, Air Force  Occupational Safety, Fire, and Health Standards, under the following chapters: Chapter 7 Walking- Working Surfaces, Chapter 13 Fall Protection, Chapter 16 Mobile Elevating Work Platforms and  Scaffolding, and fall protection requirements found in Chapter 24 Aircraft Flightline – Ground Operations  and Activities. This training requirements ensure safety professionals can meet requirements found in DAFI  91-202, The US Air Force Mishap Prevention Program, that implement requirements under 29 Code of  Federal Regulations (CFR) 1960.56, Training of Safety and Health Specialists. This assures Safety and  Health Specialists can competently perform consultation, inspection, and hazard recognition  responsibilities under the Air Force Mishap Prevention Program. This publication is applicable to all  personnel in the Occupational Safety career field regardless of service affiliation. ",
+      },
+    ],
+    "type": "heading",
+  },
+  {
+    "id": "p-159",
+    "pageNumber": 6,
+    "text": [
+      {
+        "text": "1.1.1. This Qualification Training Package (QTP) is used to ensure basic competency for 5-level upgrade of Occupational Safety Professionals to effectively inspect, consult, and recognize hazards associated with the fall protection program. Additionally, this QTP can be used to train DAF civilian safety personnel who require initial or additional training on fall protection requirements. Chapter topics are not all inclusive and trainers are encouraged to expand on information by sharing statistics, experiences, and stories about fall protection with their trainees to enhance training.",
+      },
+    ],
+    "type": "paragraph",
+  },
+  {
+    "id": "p-160",
+    "pageNumber": 6,
+    "text": [
+      {
+        "text": "1.1.2. Send comments and suggested improvements on DAF Form 847, Recommendation for Change  of Publication, through your MAJCOM/FLDCOM to the Air Force Safety Center (AFSEC)  (afscseg@us.af.mil). ",
+      },
+    ],
+    "type": "paragraph",
+  },
+  {
+    "id": "h-3",
+    "level": 2,
+    "pageNumber": 6,
+    "text": [
+      {
+        "text": "1.2. Objectives. ",
+      },
+    ],
+    "type": "heading",
+  },
+  {
+    "id": "p-161",
+    "pageNumber": 6,
+    "text": [
+      {
+        "text": "1.2.1. After completing the required lectures, demonstrations, and hands-on sessions, trainees will be  able to complete the Knowledge Check with a passing score and be able to perform a program  assessment without the assistance of a trainer.  ",
+      },
+    ],
+    "type": "paragraph",
+  },
+  {
+    "id": "p-162",
+    "pageNumber": 6,
+    "text": [
+      {
+        "text": "1.2.2. This training will ensure the trainee has the knowledge and skills to achieve the desired learning  outcomes.  ",
+      },
+    ],
+    "type": "paragraph",
+  },
+  {
+    "id": "h-4",
+    "level": 2,
+    "pageNumber": 6,
+    "text": [
+      {
+        "text": "1.3. Desired Learning Outcomes. Trainee can assess, inspect, and provide recommendations on fall  protection activities based on DoD, DAF, Occupational Safety and Health Administration (OSHA), and  American National Standards Institute (ANSI) consensus standards. ",
+      },
+    ],
+    "type": "heading",
+  },
+  {
+    "id": "h-5",
+    "level": 2,
+    "pageNumber": 6,
+    "text": [
+      {
+        "text": "1.4. Lesson Duration. Recommended minimum training time is thirty-eight (38) hours with an overall  training timeframe of 3-6 months to develop a base-level proficiency in performing consultations,  inspections, hazard recognition, and program assessments. See Table 1.1. for a recommended breakdown.  ",
+      },
+    ],
+    "type": "heading",
+  },
+  {
+    "id": "h-6",
+    "level": 2,
+    "pageNumber": 6,
+    "text": [
+      {
+        "text": "1.5. Optional Training, Aids, and Equipment. ",
+      },
+    ],
+    "type": "heading",
+  },
+  {
+    "id": "p-163",
+    "pageNumber": 6,
+    "text": [
+      {
+        "text": "1.5.1. Contact local Aircrew Flight Equipment shop or equivalent to coordinate a harness hang event  to familiarize the trainee with real world conditions after a fall and how suspension trauma occurs.  Depending on the airframe they support, the Aircrew Flight Equipment shop will be familiar with the  process because aircrew have a recurring requirement to accomplish harness hang training. ",
+      },
+    ],
+    "type": "paragraph",
+  },
+]
+`;
+
+exports[`Epic C sample corpus > golden semantic snapshots (representative pages) > matches a stable snapshot of the untagged releasability_statement.pdf page 1 1`] = `
+[
+  {
+    "id": "p-1",
+    "pageNumber": 1,
+    "text": [
+      {
+        "text": "CONTROLLED UNCLASSIFIED INFORMATION (CUI)",
+      },
+    ],
+    "type": "paragraph",
+  },
+  {
+    "id": "p-2",
+    "pageNumber": 1,
+    "text": [
+      {
+        "text": "ACCESS TO THIS PUBLICATION IS RESTRICTED FOR CAC USERS ONLY.  THIS  PUBLICATION CAN BE ACCESSED FOR DOWNLOADING ON THE AFSPECWAR  SHAREPOINT AT  https://usaf.dps.mil/teams/13306/AFSPECWAR_Sandbox/SitePages/Home.aspx?e=1%3a5b33a8 dfa4b448e9ab81c1fe85255385&  OR BY CONTACTING THE OPR AT  AF.A34S.WORKFLOW@US.AF.MIL.",
+      },
+    ],
+    "type": "paragraph",
+  },
+]
+`;

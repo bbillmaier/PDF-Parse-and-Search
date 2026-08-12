@@ -1,0 +1,263 @@
+{
+  "generatedAt": "2026-08-06T20:47:19.431Z",
+  "databaseUrl": "postgresql://pdf_to_html:***@localhost:54329/pdf_to_html",
+  "machine": {
+    "node": "v25.2.1",
+    "platform": "win32",
+    "arch": "x64",
+    "cpuCount": 28,
+    "cpuModel": "Intel(R) Core(TM) i7-14700K",
+    "totalMemoryBytes": 68523278336
+  },
+  "realCorpus": {
+    "documentCount": 3,
+    "blockCount": 0,
+    "timings": [
+      {
+        "label": "strict multiword",
+        "query": "training program",
+        "expectedStrategyClass": "strict",
+        "runMs": 13.90889999999996,
+        "resultCount": 14,
+        "strategy": "strict"
+      },
+      {
+        "label": "phrase",
+        "query": "\"infection prevention\"",
+        "expectedStrategyClass": "strict",
+        "runMs": 6.760300000000029,
+        "resultCount": 6,
+        "strategy": "strict"
+      },
+      {
+        "label": "prefix (final term incomplete)",
+        "query": "manag",
+        "expectedStrategyClass": "prefix",
+        "runMs": 11.032299999999964,
+        "resultCount": 15,
+        "strategy": "prefix"
+      },
+      {
+        "label": "english-stemmed (mid-query word form)",
+        "query": "trained programs",
+        "expectedStrategyClass": "stemmed",
+        "runMs": 8.064199999999971,
+        "resultCount": 15,
+        "strategy": "stemmed"
+      },
+      {
+        "label": "no-result",
+        "query": "zzz-nonexistent-term-9182",
+        "expectedStrategyClass": "no-result",
+        "runMs": 7.457799999999963,
+        "resultCount": 0,
+        "strategy": "strict"
+      }
+    ]
+  },
+  "syntheticCorpus": {
+    "documentCount": 2000,
+    "importMs": 22276.424199999998,
+    "timings": [
+      {
+        "label": "strict multiword (matches most of the corpus)",
+        "query": "hydraulic calibration",
+        "expectedStrategyClass": "strict",
+        "runMs": 82.78640000000087,
+        "resultCount": 25,
+        "strategy": "strict"
+      },
+      {
+        "label": "strict unique-code lookup",
+        "query": "SC-1000",
+        "expectedStrategyClass": "strict",
+        "runMs": 8.56789999999819,
+        "resultCount": 4,
+        "strategy": "strict"
+      },
+      {
+        "label": "technical identifier variant (no separator)",
+        "query": "SC1000",
+        "expectedStrategyClass": "strict",
+        "runMs": 7.149600000000646,
+        "resultCount": 4,
+        "strategy": "strict"
+      },
+      {
+        "label": "prefix: 'inspect' reaches 'inspection' at scale",
+        "query": "inspect",
+        "expectedStrategyClass": "prefix",
+        "runMs": 46.556400000001304,
+        "resultCount": 25,
+        "strategy": "prefix"
+      },
+      {
+        "label": "english-stemmed: 'inspected' reaches 'inspection' at scale",
+        "query": "component inspected",
+        "expectedStrategyClass": "stemmed",
+        "runMs": 73.81970000000001,
+        "resultCount": 25,
+        "strategy": "stemmed"
+      },
+      {
+        "label": "partial fallback: terms that never co-occur in one row",
+        "query": "pressure audit",
+        "expectedStrategyClass": "partial",
+        "runMs": 128.46579999999813,
+        "resultCount": 25,
+        "strategy": "partial"
+      },
+      {
+        "label": "synonym: 'sanitizer' reaches 'disinfectant' at scale",
+        "query": "sanitizer",
+        "expectedStrategyClass": "synonym",
+        "runMs": 76.1195000000007,
+        "resultCount": 25,
+        "strategy": "synonym"
+      },
+      {
+        "label": "corrected: 'manaul' typo reaches 'manual' at scale",
+        "query": "manaul",
+        "expectedStrategyClass": "corrected",
+        "runMs": 89.07200000000012,
+        "resultCount": 25,
+        "strategy": "corrected"
+      },
+      {
+        "label": "no-result",
+        "query": "zzz-nonexistent-term-9182",
+        "expectedStrategyClass": "no-result",
+        "runMs": 24.622400000000198,
+        "resultCount": 0,
+        "strategy": "strict"
+      },
+      {
+        "label": "filtered strict (documentId narrows a corpus-wide term)",
+        "query": "hydraulic calibration",
+        "expectedStrategyClass": "strict",
+        "filters": {
+          "documentId": "bench-synth-1000"
+        },
+        "runMs": 5.8453000000008615,
+        "resultCount": 1,
+        "strategy": "strict"
+      },
+      {
+        "label": "filtered prefix (page narrows an incomplete word)",
+        "query": "inspect",
+        "expectedStrategyClass": "prefix",
+        "filters": {
+          "page": "2"
+        },
+        "runMs": 36.40380000000005,
+        "resultCount": 25,
+        "strategy": "prefix"
+      }
+    ],
+    "suggestionTimings": [
+      {
+        "label": "title/heading prefix matching many documents",
+        "prefix": "synthetic manual",
+        "runMs": 3.3980999999985215,
+        "suggestionCount": 10
+      },
+      {
+        "label": "technical identifier prefix at scale",
+        "prefix": "sc-1000",
+        "runMs": 0.9730000000017753,
+        "suggestionCount": 1
+      },
+      {
+        "label": "no-match prefix",
+        "prefix": "zzznomatchprefix",
+        "runMs": 0.5290999999997439,
+        "suggestionCount": 0
+      }
+    ],
+    "explain": {
+      "strict": [
+        "Bitmap Heap Scan on document_search_blocks b  (cost=1275.27..1279.28 rows=1 width=8)",
+        "  Recheck Cond: (search_vector_simple @@ '''hydraulic'' & ''calibration'''::tsquery)",
+        "  ->  Bitmap Index Scan on document_search_blocks_search_simple_idx  (cost=0.00..1275.27 rows=1 width=0)",
+        "        Index Cond: (search_vector_simple @@ '''hydraulic'' & ''calibration'''::tsquery)"
+      ],
+      "prefix": [
+        "Bitmap Heap Scan on document_search_blocks b  (cost=1275.05..1346.41 rows=20 width=8)",
+        "  Recheck Cond: (search_vector_simple @@ '''inspect'':*'::tsquery)",
+        "  ->  Bitmap Index Scan on document_search_blocks_search_simple_idx  (cost=0.00..1275.05 rows=20 width=0)",
+        "        Index Cond: (search_vector_simple @@ '''inspect'':*'::tsquery)"
+      ],
+      "partial": [
+        "Bitmap Heap Scan on document_search_blocks b  (cost=1275.36..1340.00 rows=18 width=8)",
+        "  Recheck Cond: (search_vector_simple @@ '''pressure'' | ''audit'''::tsquery)",
+        "  ->  Bitmap Index Scan on document_search_blocks_search_simple_idx  (cost=0.00..1275.36 rows=18 width=0)",
+        "        Index Cond: (search_vector_simple @@ '''pressure'' | ''audit'''::tsquery)"
+      ],
+      "stemmed": [
+        "Bitmap Heap Scan on document_search_blocks b  (cost=816.27..820.28 rows=1 width=8)",
+        "  Recheck Cond: (search_vector_english @@ '''compon'' & ''inspect'''::tsquery)",
+        "  ->  Bitmap Index Scan on document_search_blocks_search_english_idx  (cost=0.00..816.27 rows=1 width=0)",
+        "        Index Cond: (search_vector_english @@ '''compon'' & ''inspect'''::tsquery)"
+      ],
+      "technicalVariant": [
+        "Bitmap Heap Scan on document_search_blocks b  (cost=1266.62..1300.05 rows=9 width=8)",
+        "  Recheck Cond: (search_vector_simple @@ '''sc1000'''::tsquery)",
+        "  ->  Bitmap Index Scan on document_search_blocks_search_simple_idx  (cost=0.00..1266.62 rows=9 width=0)",
+        "        Index Cond: (search_vector_simple @@ '''sc1000'''::tsquery)"
+      ],
+      "synonym": [
+        "Bitmap Heap Scan on document_search_blocks b  (cost=1275.45..1395.31 rows=35 width=8)",
+        "  Recheck Cond: (search_vector_simple @@ '''sanitizer'' | ''disinfectant'''::tsquery)",
+        "  ->  Bitmap Index Scan on document_search_blocks_search_simple_idx  (cost=0.00..1275.45 rows=35 width=0)",
+        "        Index Cond: (search_vector_simple @@ '''sanitizer'' | ''disinfectant'''::tsquery)"
+      ],
+      "corrected": [
+        "Bitmap Heap Scan on document_search_blocks b  (cost=1266.68..1338.04 rows=20 width=8)",
+        "  Recheck Cond: (search_vector_simple @@ '''manual'''::tsquery)",
+        "  ->  Bitmap Index Scan on document_search_blocks_search_simple_idx  (cost=0.00..1266.67 rows=20 width=0)",
+        "        Index Cond: (search_vector_simple @@ '''manual'''::tsquery)"
+      ],
+      "filtered": [
+        "Index Scan using document_search_blocks_document_page_idx on document_search_blocks b  (cost=0.28..7.15 rows=1 width=8)",
+        "  Index Cond: (document_id = 'bench-synth-1000'::text)",
+        "  Filter: (search_vector_simple @@ '''hydraulic'''::tsquery)"
+      ],
+      "suggestion": [
+        "Index Scan using search_suggestions_prefix_idx on search_suggestions  (cost=0.28..8.30 rows=1 width=8)",
+        "  Index Cond: ((normalized ~>=~ 'synthetic manual'::text) AND (normalized ~<~ 'synthetic manuam'::text))",
+        "  Filter: (normalized ~~ 'synthetic manual%'::text)"
+      ]
+    }
+  },
+  "vocabulary": {
+    "size": 4324,
+    "storageBytes": 1466368,
+    "maxCandidatesExaminedPerTerm": 100
+  },
+  "suggestions": {
+    "size": 6180,
+    "storageBytes": 1826816,
+    "maxCandidatesExamined": 100,
+    "maxReturned": 10
+  },
+  "sizes": {
+    "databaseBytes": 31823539,
+    "indexBytes": {
+      "documents_pkey": 139264,
+      "documents_title_unique": 155648,
+      "documents_content_sha256_unique": 401408,
+      "document_search_blocks_pkey": 458752,
+      "document_search_blocks_identity_unique": 1097728,
+      "documents_title_search_idx": 319488,
+      "document_search_blocks_document_section_idx": 909312,
+      "document_search_blocks_document_page_idx": 671744,
+      "document_search_blocks_search_simple_idx": 4366336,
+      "document_search_blocks_search_english_idx": 2842624,
+      "search_vocabulary_terms_pkey": 647168,
+      "search_vocabulary_terms_prefix_idx": 253952,
+      "search_suggestions_pkey": 163840,
+      "search_suggestions_unique": 704512,
+      "search_suggestions_prefix_idx": 294912
+    }
+  }
+}
