@@ -1,5 +1,7 @@
 # Getting Started
 
+> Repository setup verified on 2026-08-12 for the Windows Docker demo workflow.
+
 This guide covers publishing the project to GitHub and running the complete
 demo on another Windows machine with Docker Desktop.
 
